@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Soukromá skupina</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: url('pozadi.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      backdrop-filter: brightness(0.5);
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: rgba(0,0,0,0.7);
+      padding: 30px;
+      border-radius: 12px;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    button {
+      background: crimson;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: darkred;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Soukromá skupina</h1>
+    <p>Máme rádi gangbang a ženy, které ho mají rády.<br>
+    Pojďte do toho s námi – nestává se často, že bychom někoho nového přijímali.</p>
+
+    <form action="https://formsubmit.co/tvuj@email.cz" method="POST">
+      <!-- skrytá nastavení -->
+      <input type="hidden" name="_subject" value="Nový formulář z webu">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://tvoje-stranka.github.io/diky.html">
+
+      <label>Je Vám více než 18 let?</label>
+      <select name="vek" required>
+        <option value="">-- vyberte --</option>
+        <option value="ano">Ano</option>
+        <option value="ne">Ne</option>
+      </select>
+
+      <label>Telefon na Vás:</label>
+      <input type="tel" name="telefon" placeholder="+420 123 456 789" required>
+
+      <label>Souhlas se zpracováním údajů:</label>
+      <select name="souhlas" required>
+        <option value="">-- vyberte --</option>
+        <option value="ano">Ano</option>
+        <option value="ne">Ne</option>
+      </select>
+
+      <button type="submit">Odeslat</button>
+    </form>
+  </div>
+</body>
+</html>
