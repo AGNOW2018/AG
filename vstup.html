@@ -21,6 +21,34 @@
       border-radius: 12px;
       margin-top: 20px;
     }
+    form {
+      margin-top: 30px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    button {
+      background: crimson;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: darkred;
+    }
+    .note {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #ccc;
+    }
   </style>
 </head>
 <body>
@@ -28,6 +56,21 @@
     <h1>Vítejte ve skupině</h1>
     <p>Tato část je dostupná pouze pro osoby starší 18 let.</p>
     <img src="AGFOTKA.JPG" alt="Obrázek pro členy skupiny">
+
+    <form action="https://formsubmit.co/tomas.portych@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Zájemce o více informací">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://agnow2018.github.io/AG/diky.html">
+
+      <label for="telefon">Pro více informací zadej číslo:</label>
+      <input type="tel" id="telefon" name="telefon" placeholder="+420 123 456 789" required>
+
+      <button type="submit">Odeslat</button>
+      <div class="note">
+        Komunikace probíhá přes WhatsApp.<br>
+        Zašleme info o termínu akce – kdy, kde a jak.
+      </div>
+    </form>
   </div>
 </body>
 </html>
