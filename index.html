@@ -32,49 +32,30 @@
     button:hover {
       background: darkred;
     }
-    #vstupSekce {
-      display: none;
-    }
-    img {
-      max-width: 100%;
-      border-radius: 12px;
-      margin-top: 20px;
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Úvodní formulář -->
-    <div id="formSekce">
-      <h1>Soukromá skupina</h1>
-      <p>Pojďte do toho s námi – nestává se často, že bychom někoho nového přijímali.</p>
+    <h1>Soukromá skupina</h1>
+    <p>Pojďte do toho s námi – nestává se často, že bychom někoho nového přijímali.</p>
 
-      <form id="entryForm" onsubmit="return zobrazVstup(event)">
-        <label>Je Vám více než 18 let?</label>
-        <select id="vek" required>
-          <option value="" disabled selected>-- vyberte --</option>
-          <option value="ano">Ano</option>
-          <option value="ne">Ne</option>
-        </select>
-        <button type="submit">Vstoupit</button>
-      </form>
-    </div>
-
-    <!-- Zobrazí se až po potvrzení věku -->
-    <div id="vstupSekce">
-      <h1>Vítejte ve skupině</h1>
-      <p>Tato část je dostupná pouze pro osoby starší 18 let.</p>
-      <img src="AGFOTKA.JPG" alt="Obrázek pro členy skupiny">
-    </div>
+    <form onsubmit="return presmeruj(event)">
+      <label>Je Vám více než 18 let?</label>
+      <select id="vek" required>
+        <option value="" disabled selected>-- vyberte --</option>
+        <option value="ano">Ano</option>
+        <option value="ne">Ne</option>
+      </select>
+      <button type="submit">Vstoupit</button>
+    </form>
   </div>
 
   <script>
-    function zobrazVstup(event) {
+    function presmeruj(event) {
       event.preventDefault();
-      const vybrano = document.getElementById("vek").value;
-      if (vybrano === "ano") {
-        document.getElementById("formSekce").style.display = "none";
-        document.getElementById("vstupSekce").style.display = "block";
+      const vek = document.getElementById("vek").value;
+      if (vek === "ano") {
+        window.location.href = "vstup.html";
       } else {
         alert("Přístup je povolen pouze osobám starším 18 let.");
       }
