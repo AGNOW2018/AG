@@ -48,33 +48,62 @@
   <div class="container">
     <img src="AGFOTKA.JPG" alt="Fotografie" style="max-width:100%; border-radius:12px; margin-bottom:20px;">
     <h1>Soukromá skupina</h1>
-    Pojďte do toho s námi – nestává se často, že bychom někoho nového přijímali.</p>
+    <p>Pojďte do toho s námi – nestává se často, že bychom někoho nového přijímali.</p>
 
-   <form action="https://formsubmit.co/tomas.portych@gmail.com" method="POST">
-  <input type="hidden" name="_subject" value="Nový formulář z GitHubu">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="https://agnow2018.github.io/AG/diky.html">
-
+    <form id="entryForm" onsubmit="return checkAge(event)">
       <label>Je Vám více než 18 let?</label>
-      <select name="vek" required>
-        <option value="">-- vyberte --</option>
+      <select name="vek" id="vek" required>
+        <option value="" disabled selected>-- vyberte --</option>
         <option value="ano">Ano</option>
         <option value="ne">Ne</option>
       </select>
 
-      <label> Následuje komunikace přes whatsup .. </label>
-     <label>Telefon na Vás:</label>
-      <input type="tel" name="telefon" placeholder="+420 123 456 789" required>
-
-      <label>Souhlas se zpracováním údajů:</label>
-      <select name="souhlas" required>
-        <option value="">-- vyberte --</option>
-        <option value="ano">Ano</option>
-        <option value="ne">Ne</option>
-      </select>
-
-      <button type="submit">Odeslat</button>
+      <button type="submit">Vstoupit</button>
     </form>
+  </div>
+
+  <script>
+    function checkAge(event) {
+      event.preventDefault();
+      const vek = document.getElementById("vek").value;
+      if (vek === "ano") {
+        window.location.href = "vstup.html";
+      } else {
+        alert("Přístup povolen pouze osobám starším 18 let.");
+      }
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Vítejte</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: black;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Vítejte ve skupině</h1>
+    <p>Tato část je dostupná pouze pro osoby starší 18 let.</p>
+    <img src="AGFOTKA.JPG" alt="Obrázek pro členy skupiny">
   </div>
 </body>
 </html>
