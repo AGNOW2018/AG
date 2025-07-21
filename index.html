@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -22,7 +21,7 @@
       padding: 30px;
       border-radius: 12px;
     }
-    input, select {
+    select, button {
       width: 100%;
       padding: 12px;
       margin: 10px 0;
@@ -33,76 +32,58 @@
     button {
       background: crimson;
       color: white;
-      border: none;
-      padding: 12px 24px;
-      font-size: 16px;
-      border-radius: 6px;
       cursor: pointer;
     }
     button:hover {
       background: darkred;
     }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <img src="AGFOTKA.JPG" alt="Fotografie" style="max-width:100%; border-radius:12px; margin-bottom:20px;">
-    <h1>Soukromá skupina</h1>
-    <p>Pojďte do toho s námi – nestává se často, že bychom někoho nového přijímali.</p>
-
-    <form id="entryForm" onsubmit="return checkAge(event)">
-      <label>Je Vám více než 18 let?</label>
-      <select name="vek" id="vek" required>
-        <option value="" disabled selected>-- vyberte --</option>
-        <option value="ano">Ano</option>
-        <option value="ne">Ne</option>
-      </select>
-
-      <button type="submit">Vstoupit</button>
-    </form>
-  </div>
-
-  <script>
-    function checkAge(event) {
-      event.preventDefault();
-      const vek = document.getElementById("vek").value;
-      if (vek === "ano") {
-        window.location.href = "vstup.html";
-      } else {
-        alert("Přístup povolen pouze osobám starším 18 let.");
-      }
-    }
-  </script>
-</body>
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-  <meta charset="UTF-8">
-  <title>Vítejte</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      background: black;
-      color: white;
-      text-align: center;
-      font-family: Arial, sans-serif;
-      padding: 40px 20px;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
+    #vstupSekce {
+      display: none;
     }
     img {
       max-width: 100%;
       border-radius: 12px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Vítejte ve skupině</h1>
-    <p>Tato část je dostupná pouze pro osoby starší 18 let.</p>
-    <img src="AGFOTKA.JPG" alt="Obrázek pro členy skupiny">
+    <!-- FORMULÁŘ -->
+    <div id="formSekce">
+      <h1>Soukromá skupina</h1>
+      <p>Pojďte do toho s námi – nestává se často, že bychom někoho nového přijímali.</p>
+
+      <form id="entryForm" onsubmit="return zobrazVstup(event)">
+        <label>Je Vám více než 18 let?</label>
+        <select id="vek" required>
+          <option value="" disabled selected>-- vyberte --</option>
+          <option value="ano">Ano</option>
+          <option value="ne">Ne</option>
+        </select>
+        <button type="submit">Vstoupit</button>
+      </form>
+    </div>
+
+    <!-- OBSAH PO VSTUPU -->
+    <div id="vstupSekce">
+      <h1>Vítejte ve skupině</h1>
+      <p>Tato část je dostupná pouze pro osoby starší 18 let.</p>
+      <img src="AGFOTKA.JPG" alt="Obrázek pro členy skupiny">
+    </div>
   </div>
+
+  <script>
+    function zobrazVstup(event) {
+      event.preventDefault();
+      const vybrano = document.getElementById("vek").value;
+      if (vybrano === "ano") {
+        document.getElementById("formSekce").style.display = "none";
+        document.getElementById("vstupSekce").style.display = "block";
+      } else {
+        alert("Přístup je povolen pouze osobám starším 18 let.");
+      }
+    }
+  </script>
 </body>
 </html>
